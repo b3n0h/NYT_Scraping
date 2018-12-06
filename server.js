@@ -7,6 +7,8 @@ const path = require('path')
 
 const app = express()
 
+const PORT = process.env.port || 4000
+
 mongoose.connect('mongodb://localhost/NYT', {useNewUrlParser: true})
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -14,4 +16,4 @@ app.use(bodyparser.urlencoded({ extended: true }))
 app.use(bodyparser.json())
 
 
-app.listen(4000, _ => console.log('http://localhost:4000'))
+app.listen(PORT, _ => console.log('http://localhost:4000'))
