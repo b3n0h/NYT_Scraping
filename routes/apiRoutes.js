@@ -5,12 +5,15 @@ const cheerio = require('cheerio')
 module.exports = (app) => {
 
   app.get('/scrape', (req, res) => {
-    axios.get('https://www.nytimes.com')
+    axios.get('https://www.nytimes.com/section/world/')
       .then(r => {
         const $ = cheerio.load(r.data)
-        $('div.css-6p6lnl').each((i, elem) => {
-          console.log('https://www.nytimes.com' + $(elem).children('a').attr('href'))
-          console.log($(elem).children('a').children('div').children('h2').html())
+        $('div.story-body').each((i, elem) => {
+          if (i <= 10) {
+            const title = $(elem).children('h2.headline').text()
+            const link = $(elem).children('h2.headline').children('a').attr('href')
+            const summary = $(elem).children('p.summary').text()
+          }
         })
       })
       .catch(e => console.log(e))
