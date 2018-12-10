@@ -1,3 +1,3 @@
 module.exports = {
-  Artcile: require('./articles')
+  Article: require('./articles')
 }

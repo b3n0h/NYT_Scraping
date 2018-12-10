@@ -11,7 +11,7 @@ const PORT = process.env.port || 4000
 
 mongoose.connect('mongodb://localhost/NYT', {useNewUrlParser: true})
 
-const route = require('./routes/apiRoutes')(app)
+route = require('./routes/apiRoutes')(app)
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyparser.urlencoded({ extended: true }))
