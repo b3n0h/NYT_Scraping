@@ -31,8 +31,8 @@ function getArticles () {
       }
     })
 
-  function save () {
+  // function save () {
     
-  }
+  // }
 
 }
