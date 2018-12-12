@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 4000
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NYT"
 
-mongoose.connect(MONGODB_URI)
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 
 route = require('./routes/apiRoutes')(app)
 // route = require('./routes/htmlRoutes')(app)

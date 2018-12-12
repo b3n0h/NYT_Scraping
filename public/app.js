@@ -1,10 +1,8 @@
 function getArticles () {
-  console.log('ping')
   fetch('/scrape')
     .then(r => r.json())
     .then(d => {
       for (i = 0; i < d.length ; i++) {
-        console.log(d)
         document.getElementById('articles').insertAdjacentHTML('afterbegin', `
                 <div class="ui fluid card">
                   <div class="content">
