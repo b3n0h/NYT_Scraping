@@ -6,7 +6,7 @@ const db = require('../models')
 module.exports = (app) => {
 
   app.get('/scrape', (req, res) => {
-    db.Article.delete({}, (e, d) => {
+    db.Article.remove({}, (e, d) => {
       axios.get('https://www.nytimes.com/section/world/')
         .then(r => {
           const $ = cheerio.load(r.data)
@@ -28,7 +28,7 @@ module.exports = (app) => {
         .catch(e => console.log(e))
       })
     .catch(e => console.log(e))
-})
+  })
   
   app.get('/articles', (req, res) => {
     db.Article.find({})
