@@ -5,10 +5,6 @@ const db = require('../models')
 
 module.exports = (app) => {
 
-  app.get('/articles', (req, res) => {
-
-  })
-
   app.get('/scrape', (req, res) => {
     axios.get('https://www.nytimes.com/section/world/')
       .then(r => {
@@ -17,7 +13,7 @@ module.exports = (app) => {
         $('div.story-body').each((i, elem) => {
           if (i <= 9) {
           articlesArr.push({
-               headline: $(elem).children('h2.headline').text(),
+               headline: $(elem).children('h2.headline').text().trim(),
                summary: $(elem).children('p.summary').text(),
                url: $(elem).children('h2.headline').children('a').attr('href')
               })
@@ -38,6 +34,6 @@ module.exports = (app) => {
     })
   })
 
-
+}
 
 
