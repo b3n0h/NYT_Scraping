@@ -14,7 +14,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NYT"
 mongoose.connect(MONGODB_URI)
 
 route = require('./routes/apiRoutes')(app)
-route = require('./routes/htmlRoutes')(app)
+// route = require('./routes/htmlRoutes')(app)
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyparser.urlencoded({ extended: true }))
