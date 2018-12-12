@@ -7,7 +7,7 @@ const path = require('path')
 
 const app = express()
 
-const PORT = process.env.port || 4000
+const PORT = process.env.PORT || 4000
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NYT"
 
