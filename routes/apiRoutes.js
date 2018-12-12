@@ -26,7 +26,8 @@ module.exports = (app) => {
           res.send(articlesArr)
         })
         .catch(e => console.log(e))
-  })
+    })
+})
   
   app.get('/articles', (req, res) => {
     db.Article.find({})
