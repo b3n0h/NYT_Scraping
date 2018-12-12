@@ -8,7 +8,7 @@ function getArticles () {
         document.getElementById('articles').insertAdjacentHTML('afterbegin', `
                 <div class="ui fluid card">
                   <div class="content">
-                    <div class="header">${d[i].headline}</div>
+                    <div class="header"><a href='${d[i].url}'>${d[i].headline}</a></div>
                   </div>
                   <div class="content">
                     <h4 class="ui sub header"></h4>
@@ -21,11 +21,10 @@ function getArticles () {
                         </div>
                       </div>
                     </div>
-                    <a href='${d[i].url}'>
-                      <div class="ui bottom attached button">
+                      <div class="ui bottom attached button blue button">
                         <i class="add icon"></i>
-                          Read More
-                      </div></a>
+                          Save Article
+                      </div>
                   </div>
                 </div>
         `)
