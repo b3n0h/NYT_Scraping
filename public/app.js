@@ -20,7 +20,7 @@ function getArticles () {
                       </div>
                     </div>
                       <div data-id='${d[i]._id}' class="ui bottom attached button blue button" onClick="saveArticle(event)">
-                        <i class="add icon"></i>
+                        <i id="icon" class="add icon"></i>
                           Save Article
                       </div>
                   </div>
@@ -32,7 +32,6 @@ function getArticles () {
 
 function saveArticle(event) {
   let id = event.target.getAttribute('data-id')
-  console.log(id)
   fetch('/article', {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },

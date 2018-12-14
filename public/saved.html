@@ -10,14 +10,12 @@
 </head>
 <body>
   <div class="ui menu">
-    <a class="item">New York Times Scraping</a>
+    <a class="item" href='/'>New York Times Scraping</a>
     <a class="item"><button class="ui button" onClick=getArticles()>Get new articles</button></a>
-    <a class="item"><button class="ui button" onClick=clear()>Save articles</button></a>
     <a href='./saved.html' class="item">View saved articles</a>
   </div>
 
-  <div id="savedArticles">
-  </div>
+  <div id="savedArticles"></div>
 
   <script src="./saved.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>

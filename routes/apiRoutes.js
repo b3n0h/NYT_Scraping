@@ -4,7 +4,6 @@ const cheerio = require('cheerio')
 const db = require('../models')
 
 module.exports = (app) => {
-
   
   app.get('/scrape', (req, res) => {
     db.Article.remove({}, (e, d) => {
@@ -40,7 +39,6 @@ module.exports = (app) => {
     })
 
     app.put('/article', function (req, res) {
-      console.log(req.body)
       db.Article.findOneAndUpdate({ _id: req.body.id }, { saved: true }, function (err, doc) {
         if (err) throw err
         res.sendStatus(200)
