@@ -1,9 +1,8 @@
-function getArticles () {
-  fetch('/scrape')
-    .then(r => r.json())
-    .then(d => {
-      for (i = 0; i < d.length ; i++) {
-        document.getElementById('articles').insertAdjacentHTML('afterbegin', `
+fetch('/saved')
+  .then(r => r.json())
+  .then(d => {
+    for (i = 0; i < d.length; i++) {
+      document.getElementById('savedArticles').insertAdjacentHTML('afterbegin', `
                 <div class="ui fluid card">
                   <div class="content">
                     <div class="header"><a href='${d[i].url}'>${d[i].headline}</a></div>
@@ -26,18 +25,6 @@ function getArticles () {
                   </div>
                 </div>
         `)
-      }
-    })
-  }
-
-function saveArticle(event) {
-  let id = event.target.getAttribute('data-id')
-  console.log(id)
-  fetch('/article', {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json; charset=utf-8' },
-    body: JSON.stringify({id})
-    })
-    .then()
-    .catch(e => console.log(e))
-  }
+    }
+  })
+  

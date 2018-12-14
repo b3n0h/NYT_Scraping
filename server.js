@@ -13,11 +13,10 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NYT"
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 
-route = require('./routes/apiRoutes')(app)
-// route = require('./routes/htmlRoutes')(app)
-
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyparser.urlencoded({ extended: true }))
 app.use(bodyparser.json())
+
+route = require('./routes/apiRoutes')(app)
 
 app.listen(PORT, _ => console.log('http://localhost:4000'))
